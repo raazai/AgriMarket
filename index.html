@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FarmFresh connects local farmers directly with buyers of fresh agricultural produce.">
+  <title>FarmFresh | Fresh from the Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="FarmFresh home">
+      <span class="brand-mark">F<span>+</span></span>
+      <span>farm<span class="brand-green">fresh</span><small>FRESH FROM THE FARM</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#marketplace">Marketplace</a>
+      <a class="nav-link" href="#farmer">For Farmers</a>
+      <a class="nav-link" href="#orders">Orders <span class="nav-count" id="navOrderCount">0</span></a>
+    </nav>
+    <a class="header-cta" href="#marketplace">Explore produce <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> A BETTER WAY TO BUY LOCAL</div>
+        <h1>Good food starts<br>with <em>good farms.</em></h1>
+        <p class="hero-copy">Discover fresh, locally grown produce and connect directly with the farmers who grow it. Fair prices. Clear availability. Stronger communities.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#marketplace">Explore marketplace <span>→</span></a>
+          <a class="text-link" href="#farmer">I'm a farmer <span>↗</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-avatars"><span>🌾</span><span>👩🏽‍🌾</span><span>👨🏻‍🌾</span></div>
+          <div><strong>Local farms, direct connections</strong><small>Bringing growers and buyers closer</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image">
+          <div class="image-label"><span>✦</span> GROWN WITH CARE</div>
+        </div>
+        <div class="floating-card harvest-card">
+          <span class="floating-icon">🌱</span><div><strong>Fresh harvests</strong><small>Know when it's ready</small></div>
+        </div>
+        <div class="floating-card direct-card">
+          <span class="direct-check">✓</span><div><strong>Direct from farmers</strong><small>Less distance. More trust.</small></div>
+        </div>
+        <div class="hero-stamp">FRESH<br><span>&</span><br>LOCAL</div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="statProducts">6</strong><span>Produce listings</span></div>
+      <div><strong>Direct</strong><span>Farmer connections</span></div>
+      <div><strong>Fair</strong><span>Transparent pricing</span></div>
+      <div><strong>Fresh</strong><span>Seasonal availability</span></div>
+    </section>
+
+    <section class="market-section section-wrap" id="marketplace">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE MARKETPLACE</div><h2>Find your <em>fresh.</em></h2><p>Browse what's growing near you, straight from local farms.</p></div>
+        <div class="market-note"><span>✳</span> New harvests are added by farmers</div>
+      </div>
+      <div class="market-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search crops, farmers or locations..." aria-label="Search produce"></label>
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="All">All categories</option><option value="Vegetables">Vegetables</option><option value="Fruits">Fruits</option><option value="Grains">Grains</option><option value="Pulses">Pulses</option>
+        </select>
+        <select id="sortFilter" aria-label="Sort listings">
+          <option value="newest">Recently added</option><option value="priceLow">Price: low to high</option><option value="priceHigh">Price: high to low</option>
+        </select>
+      </div>
+      <div class="category-pills" id="categoryPills">
+        <button class="category-pill selected" data-category="All">All produce</button>
+        <button class="category-pill" data-category="Vegetables">🥬 Vegetables</button>
+        <button class="category-pill" data-category="Fruits">🍎 Fruits</button>
+        <button class="category-pill" data-category="Grains">🌾 Grains</button>
+        <button class="category-pill" data-category="Pulses">🫘 Pulses</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><span>🌱</span><h3>No produce found</h3><p>Try another search or category.</p></div>
+    </section>
+
+    <section class="farmer-section" id="farmer">
+      <div class="farmer-intro">
+        <div class="eyebrow light-eyebrow">GROW WITH FARMFRESH</div>
+        <h2>Your harvest<br>deserves a <em>bigger market.</em></h2>
+        <p>List your produce, share when it will be ready and receive requests directly from interested buyers.</p>
+        <div class="farmer-benefit"><span>01</span><div><strong>Set your own price</strong><small>Show buyers clear, upfront pricing.</small></div></div>
+        <div class="farmer-benefit"><span>02</span><div><strong>Share availability</strong><small>Let buyers know what you have and when.</small></div></div>
+        <div class="farmer-benefit"><span>03</span><div><strong>Manage requests</strong><small>Review and update buyer requests.</small></div></div>
+      </div>
+      <div class="listing-panel">
+        <div class="panel-top"><div><span class="panel-kicker">FARMER PORTAL</span><h3>Add a produce listing</h3></div><span class="panel-leaf">✳</span></div>
+        <form id="listingForm">
+          <div class="form-row"><label>Farmer name<input id="farmerName" type="text" placeholder="e.g. Harpreet Singh" required></label><label>Farm location<input id="farmerLocation" type="text" placeholder="e.g. Nakodar, Punjab" required></label></div>
+          <div class="form-row"><label>Produce name<input id="produceName" type="text" placeholder="e.g. Fresh tomatoes" required></label><label>Category<select id="produceCategory" required><option value="">Choose category</option><option>Vegetables</option><option>Fruits</option><option>Grains</option><option>Pulses</option></select></label></div>
+          <div class="form-row three-cols"><label>Quantity (kg)<input id="produceQuantity" type="number" min="1" placeholder="e.g. 250" required></label><label>Price / kg (₹)<input id="producePrice" type="number" min="1" step="0.5" placeholder="e.g. 30" required></label><label>Available from<input id="availableDate" type="date" required></label></div>
+          <label>Short description <span class="optional">(optional)</span><textarea id="produceDescription" rows="2" placeholder="Tell buyers about the produce..."></textarea></label>
+          <button class="button button-dark full-button" type="submit">Publish listing <span>→</span></button>
+          <p class="form-message" id="listingMessage" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="orders-section section-wrap" id="orders">
+      <div class="section-heading orders-heading"><div><div class="eyebrow">YOUR ACTIVITY</div><h2>Request <em>board.</em></h2><p>Keep track of buyer requests and update their status.</p></div><div class="request-total"><strong id="requestCount">0</strong><span>Total requests</span></div></div>
+      <div class="orders-list" id="ordersList"></div>
+      <div class="empty-orders" id="emptyOrders"><span>📋</span><strong>No requests yet</strong><p>Buyer requests will appear here after someone requests a listing.</p></div>
+    </section>
+
+    <section class="closing-banner">
+      <div><span class="eyebrow light-eyebrow">FRESHNESS HAS A SOURCE</span><h2>Know your farmer.<br><em>Love your food.</em></h2></div>
+      <a class="button button-light" href="#marketplace">Explore the marketplace <span>→</span></a>
+      <div class="banner-decoration">✳</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">F<span>+</span></span><span>farm<span class="brand-green">fresh</span><small>FRESH FROM THE FARM</small></span></a>
+    <p>Supporting local farms. Bringing fresh produce closer.</p>
+    <span>© 2026 FarmFresh · Student project</span>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="requestModal">
+    <div class="request-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <div class="eyebrow">CONNECT WITH THE FARMER</div><h3 id="modalTitle">Request produce</h3>
+      <p class="modal-product-name" id="modalProductName"></p>
+      <form id="requestForm">
+        <input type="hidden" id="requestProductId">
+        <label>Your name<input id="buyerName" type="text" placeholder="Enter your name" required></label>
+        <label>Quantity required (kg)<input id="requestQuantity" type="number" min="1" required></label>
+        <label>Contact number<input id="buyerContact" type="tel" placeholder="Enter contact number" required></label>
+        <button class="button button-primary full-button" type="submit">Send request <span>→</span></button>
+        <p class="form-message" id="requestMessage" role="status"></p>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
